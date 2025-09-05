@@ -42,6 +42,14 @@ const customers: Customer[] = [
 const app: Express = express();
 app.use(express.json());
 
+app.get("/api/customers/:id", (req: Request, res: Response): void => {
+    const response = {
+        totalCount: customers.length
+    };
+    res.json(response);
+});
+
+
 /**
  * Retrieve a customer by ID.
  * @route GET /api/customers/:id
@@ -126,3 +134,4 @@ app.patch(
 );
 
 export default app;
+
